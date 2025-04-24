@@ -1,0 +1,35 @@
+<h2 mat-dialog-title>{{ data?.code ? 'Edición' : 'Nueva' }}</h2>
+<mat-dialog-content [formGroup]="formGroup">
+  <mat-form-field class="w-100 mt-2" appearance="outline">
+    <mat-label>Código</mat-label>
+    <input formControlName="code" matInput />
+  </mat-form-field>
+  <mat-form-field class="w-100" appearance="outline">
+    <mat-label>Tipo</mat-label>
+    <select formControlName="type" matNativeControl required>
+      <option value="Black">Black</option>
+      <option value="Gold">Gold</option>
+      <option value="Silver">Silver</option>
+      <option value="Bronze">Bronze</option>
+    </select>
+  </mat-form-field>
+  <mat-form-field class="w-100" appearance="outline">
+    <mat-label>Monto</mat-label>
+    <span matTextPrefix>$&nbsp;</span>
+    <input type="number" formControlName="balance" matInput />
+  </mat-form-field>
+  <mat-form-field class="w-100" appearance="outline">
+    <mat-label>Vendido a</mat-label>
+    <input formControlName="owner" matInput />
+  </mat-form-field>
+  <app-card class="mb-3 d-flex align-items-center justify-content-center" [giftcard]="getFormValue()"></app-card>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="dialogRef.close()">Cerrar</button>
+  @if (data?.code) {
+    <button mat-button color="warn" (click)="delete()">Eliminar</button>
+    <button mat-button cdkFocusInitial (click)="update()">Actualizar</button>
+  } @else {
+    <button mat-button cdkFocusInitial (click)="create()">Crear</button>
+  }
+</mat-dialog-actions>

@@ -1,0 +1,19 @@
+<div class="d-flex justify-content-center align-items-center vh-100">
+  <mat-card appearance="outlined" class="p-4 w-100" style="max-width: 400px;">
+    <mat-card-header class="mb-3">
+      <mat-card-title>Ingreso</mat-card-title>
+      <mat-card-subtitle>Bienvenido a TuAdmin!</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content [formGroup]="formGroup">
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label>Email</mat-label>
+        <input formControlName="email" matInput placeholder="Ej. test@test.com">
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="w-100 mt-3">
+        <mat-label>Contraseña</mat-label>
+        <input formControlName="password" matInput placeholder="Ej. ******">
+      </mat-form-field>
+      <button (click)="login()" [disabled]="!formGroup.dirty" class="w-100" mat-flat-button>Ingresar</button>
+    </mat-card-content>
+  </mat-card>
+</div>

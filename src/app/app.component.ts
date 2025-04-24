@@ -1,11 +1,11 @@
-import {Component, inject, OnDestroy, signal} from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {Component, inject, OnDestroy, OnInit, signal} from '@angular/core';
+import {Router, RouterOutlet} from '@angular/router';
 import {
   MatSidenav,
   MatSidenavContainer,
   MatSidenavContent
 } from '@angular/material/sidenav';
-import {MatIconButton} from '@angular/material/button';
+import {MatButton, MatIconButton} from '@angular/material/button';
 import {MatToolbar} from '@angular/material/toolbar';
 import {MatIcon} from '@angular/material/icon';
 import {MatListItem, MatNavList} from '@angular/material/list';
@@ -13,21 +13,20 @@ import {MediaMatcher} from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, MatToolbar, MatIcon, MatSidenavContent, MatIconButton, MatSidenavContainer, MatNavList, MatSidenav, MatListItem],
+  imports: [RouterOutlet, MatToolbar, MatIcon, MatSidenavContent, MatIconButton, MatSidenavContainer, MatNavList, MatSidenav, MatListItem, MatButton],
   templateUrl: './app.component.html',
   standalone: true,
   styleUrl: './app.component.scss'
 })
-export class AppComponent implements OnDestroy {
+export class AppComponent implements OnDestroy, OnInit {
   title = 'tuadmin';
+  currentUrl: string = '';
+
+  router = inject(Router);
   protected readonly fillerNav = [
     {
       name: 'Giftcards',
       path: '/giftcards',
-    },
-    {
-      name: 'Productos',
-      path: '/products',
     }
   ];
 
@@ -57,5 +56,19 @@ export class AppComponent implements OnDestroy {
 
   ngOnDestroy(): void {
     this._mobileQuery.removeEventListener('change', this._mobileQueryListener);
+  }
+
+  logout() {
+    this.router.navigate(['/login']);
+  }
+
+  ngOnInit(): void {
+    this.router.events.subscribe(() => {
+      this.currentUrl = this.router.url;
+    });
+  }
+
+  isLoginRoute(): boolean {
+    return this.currentUrl === '/login';
   }
 }

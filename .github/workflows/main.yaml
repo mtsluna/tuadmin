@@ -1,0 +1,36 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Add email github
+        run: git config --global user.email "mtsluna@gmail.com"
+
+      - name: Add username github
+        run: git config --global user.name "Matias Luna"
+
+      - name: Build and deploy
+        env:
+          CI: true
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
+          export NODE_OPTIONS="--max-old-space-size=4096"
+          npm run deploy -- --base-href=https://admin.barsac.com.ar --cname=admin.barsac.com.ar
