@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "deploy": "ng deploy --base-href=https://admin.barsac.com.ar --cname=admin.barsac.com.ar --no-silent"
+    "deploy": "ng deploy --configuration production --base-href=https://admin.barsac.com.ar --cname=admin.barsac.com.ar --no-silent"
   },
   "private": true,
   "dependencies": {
