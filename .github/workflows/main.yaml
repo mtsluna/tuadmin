@@ -33,4 +33,4 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           export NODE_OPTIONS="--max-old-space-size=4096"
-          npm run deploy -- --base-href=https://admin.barsac.com.ar --cname=admin.barsac.com.ar
+          npm run deploy
