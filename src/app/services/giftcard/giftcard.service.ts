@@ -16,7 +16,8 @@ export class GiftCardService {
   getGiftCards(sort: string, order: SortDirection, page: number, search: string): Observable<GithubApi> {
     return this._httpClient.get<GithubApi>(this.url, {
       params: {
-        ...(search ? { search } : {})
+        ...(search ? { search } : {}),
+        size: 100
       } as unknown as HttpParams
     });
   }
