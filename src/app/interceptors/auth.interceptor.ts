@@ -18,7 +18,9 @@ export class AuthInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const accessToken = localStorage.getItem('accessToken');
 
-    console.info("Intercepting request")
+    if (req.url.includes('/refresh-token')) {
+      return next.handle(req);
+    }
 
     const clonedRequest = accessToken
       ? req.clone({ setHeaders: { Authorization: `Bearer ${accessToken}` } })
@@ -34,7 +36,7 @@ export class AuthInterceptor implements HttpInterceptor {
               const retryRequest = req.clone({
                 setHeaders: {
                   Authorization: `Bearer ${data.accessToken}`,
-                  'Skip-Auth-Retry': 'true' // Evita reintentos infinitos
+                  'Skip-Auth-Retry': 'true'
                 }
               });
               return next.handle(retryRequest);
