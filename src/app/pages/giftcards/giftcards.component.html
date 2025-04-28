@@ -5,6 +5,7 @@
   </mat-card-header>
   <mat-card-actions align="start">
     <button (click)="openDetail(undefined)" mat-button>Nueva +</button>
+    <button (click)="downloadAll()" mat-button>Descargar todas</button>
   </mat-card-actions>
   <mat-card-content>
     <div class="mat-elevation-z8">
@@ -47,6 +48,17 @@
           <ng-container matColumnDef="balance">
             <th mat-header-cell *matHeaderCellDef>Balance</th>
             <td mat-cell *matCellDef="let row">{{row.balance | currency: 'ARS'}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let row">
+              <button (click)="downloadCard(row)" mat-icon-button aria-label="Example icon button with a menu icon">
+                <mat-icon>download</mat-icon>
+              </button>
+              <app-card style="position: absolute; top: -9999px; left: -9999px;" [id]="'table_' + row.code"  [giftcard]="row"></app-card>
+              <app-card-back [id]="'table_back_' + row.code" style="position: absolute; top: -9999px; left: -9999px;" [giftcard]="row"></app-card-back>
+            </td>
           </ng-container>
 
           <!-- Created Column -->

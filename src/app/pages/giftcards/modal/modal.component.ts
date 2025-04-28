@@ -11,6 +11,7 @@ import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/
 import {CardComponent} from '../../../shared/components/card/card.component';
 import {GiftCard} from '../giftcards.component';
 import {GiftCardService} from '../../../services/giftcard/giftcard.service';
+import {CardBackComponent} from '../../../shared/components/card-back/card-back.component';
 
 @Component({
   selector: 'app-modal',
@@ -24,7 +25,8 @@ import {GiftCardService} from '../../../services/giftcard/giftcard.service';
     MatDialogTitle,
     ReactiveFormsModule,
     CardComponent,
-    MatPrefix
+    MatPrefix,
+    CardBackComponent
   ],
   templateUrl: './modal.component.html',
   standalone: true,

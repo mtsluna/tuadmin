@@ -22,7 +22,7 @@
     <mat-label>Vendido a</mat-label>
     <input formControlName="owner" matInput />
   </mat-form-field>
-  <app-card class="mb-3 d-flex align-items-center justify-content-center" [giftcard]="getFormValue()"></app-card>
+  <app-card [id]="'modal'" class="mb-3 d-flex align-items-center justify-content-center" [giftcard]="getFormValue()"></app-card>
 </mat-dialog-content>
 <mat-dialog-actions>
   <button mat-button (click)="dialogRef.close()">Cerrar</button>

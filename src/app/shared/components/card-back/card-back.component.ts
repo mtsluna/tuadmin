@@ -1,20 +1,16 @@
 import {Component, Input} from '@angular/core';
-import {CurrencyPipe, JsonPipe} from '@angular/common';
 import {GiftCard} from '../../../pages/giftcards/giftcards.component';
 
 @Component({
-  selector: 'app-card',
-  imports: [
-    CurrencyPipe,
-    JsonPipe
-  ],
-  templateUrl: './card.component.svg',
+  selector: 'app-card-back',
+  imports: [],
+  templateUrl: './card-back.component.svg',
   standalone: true,
-  styleUrl: './card.component.scss'
+  styleUrl: './card-back.component.scss'
 })
-export class CardComponent {
+export class CardBackComponent {
   @Input() giftcard: GiftCard = {} as GiftCard;
-  @Input() id: string = 'modal';
+  @Input() id: string = 'modal-back';
 
   types: { [key: string]: { from: string, to: string } } = {
     Black: {
