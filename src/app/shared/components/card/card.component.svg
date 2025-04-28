@@ -2,7 +2,7 @@
   <rect width="335" height="212" rx="20" fill="url(#paint0_linear_6_76)"/>
 <!--  <foreignObject x="-80" y="-80" width="495" height="372"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(40px);clip-path:url(#bgblur_0_6_76_clip_path);height:100%;width:100%"></div></foreignObject><rect data-figma-bg-blur-radius="80" width="335" height="212" rx="20" fill="white" fill-opacity="0.03"/>-->
   <path fill-rule="evenodd" clip-rule="evenodd" d="M9.17241 3.87047C4.21669 7.51057 1 13.3796 1 20V192C1 203.046 9.95431 212 21 212H315.176C325.305 212 333.676 204.47 334.995 194.702C334.421 134.353 285.6 49.2697 45.8692 0L21 0C17.5277 0 14.262 0.884889 11.4162 2.44146L9.17241 3.87047Z" fill="white" fill-opacity="0.03"/>
-  <text fill="white" xml:space="preserve" style="white-space: pre" font-family="IBM Plex Mono" font-size="16" letter-spacing="0em"><tspan x="24" y="182">{{giftcard?.code || 'XXXX-XXXX'}}</tspan></text>
+  <text fill="white" xml:space="preserve" style="white-space: pre" font-family="Ubuntu" font-size="16" letter-spacing="0em"><tspan x="24" y="182">{{giftcard?.code || 'XXXX-XXXX'}}</tspan></text>
   <text fill="white" xml:space="preserve" style="white-space: pre" font-family="Ubuntu" font-size="16" letter-spacing="0em"><tspan x="24" y="157.944">{{giftcard?.balance || 0 | currency:'ARS':'symbol':'1.0-0':'es-AR'}}</tspan></text>
   <text opacity="0.9" fill="white" xml:space="preserve" style="white-space: pre" font-family="Ubuntu" font-size="16" letter-spacing="0em"><tspan x="24" y="45.944">Gift Card</tspan></text>
   <rect x="265" y="5" width="58" height="58" fill="url(#pattern0_6_76)"/>
