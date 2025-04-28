@@ -9,7 +9,7 @@ import {GithubApi} from '../../pages/giftcards/giftcards.component';
 })
 export class GiftCardService {
 
-  url = 'http://localhost:3000/api/gift-cards';
+  url = 'https://tuadmin-api-production.up.railway.app/api/gift-cards';
 
   constructor(private _httpClient: HttpClient) {}
 

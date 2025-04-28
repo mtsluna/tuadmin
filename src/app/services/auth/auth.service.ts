@@ -7,8 +7,8 @@ import {map, Observable, switchMap} from 'rxjs';
 })
 export class AuthService {
 
-  private refreshUrl = 'http://localhost:3000/api/auth/refresh';
-  private loginUrl = 'http://localhost:3000/api/auth/login';
+  private refreshUrl = 'https://tuadmin-api-production.up.railway.app/api/auth/refresh';
+  private loginUrl = 'https://tuadmin-api-production.up.railway.app/api/auth/login';
 
   constructor(private http: HttpClient) {}
 
