@@ -18,7 +18,12 @@ export class AuthInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const accessToken = localStorage.getItem('accessToken');
 
+    console.info("Intercepting request", req.url);
+
     if (req.url.includes('/refresh-token')) {
+
+      console.info("Breaking the interceptor for refresh token");
+
       return next.handle(req);
     }
 
