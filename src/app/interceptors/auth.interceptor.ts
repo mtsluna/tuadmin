@@ -24,13 +24,16 @@ export class AuthInterceptor implements HttpInterceptor {
 
     return next.handle(clonedRequest).pipe(
       catchError((error: HttpErrorResponse) => {
-        if (error.status === 401) {
+        if (error.status === 401 && !req.headers.has('Skip-Auth-Retry')) {
           return this.authService.refreshToken().pipe(
             switchMap((data: { accessToken: string, refreshToken: string }) => {
               localStorage.setItem('accessToken', data.accessToken);
               localStorage.setItem('refreshToken', data.refreshToken);
               const retryRequest = req.clone({
-                setHeaders: { Authorization: `Bearer ${data.accessToken}` }
+                setHeaders: {
+                  Authorization: `Bearer ${data.accessToken}`,
+                  'Skip-Auth-Retry': 'true' // Evita reintentos infinitos
+                }
               });
               return next.handle(retryRequest);
             }),
