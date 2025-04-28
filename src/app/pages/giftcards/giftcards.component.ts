@@ -36,6 +36,7 @@ import {MatIcon} from '@angular/material/icon';
 import jspdf from 'jspdf';
 import {CardComponent} from '../../shared/components/card/card.component';
 import {CardBackComponent} from "../../shared/components/card-back/card-back.component";
+import {ModalMassiveComponent} from './modal-massive/modal-massive.component';
 
 @Component({
   selector: 'app-giftcards',
@@ -107,6 +108,14 @@ export class GiftcardsComponent implements AfterViewInit {
     const dialogRef = this.dialog.open(ModalComponent, {
       data: row,
     });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.loadData();
+    });
+  }
+
+  openMassive() {
+    const dialogRef = this.dialog.open(ModalMassiveComponent);
 
     dialogRef.afterClosed().subscribe(result => {
       this.loadData();

@@ -5,6 +5,7 @@
   </mat-card-header>
   <mat-card-actions align="start">
     <button (click)="openDetail(undefined)" mat-button>Nueva +</button>
+    <button (click)="openMassive()" mat-button>Carga masiva</button>
     <button (click)="downloadAll()" mat-button>Descargar todas</button>
   </mat-card-actions>
   <mat-card-content>
@@ -79,7 +80,7 @@
         </table>
       </div>
 
-      <mat-paginator [length]="resultsLength" [pageSize]="30" aria-label="Select page of GitHub search results"></mat-paginator>
+      <mat-paginator [length]="resultsLength" [pageSize]="100" aria-label="Select page of GitHub search results"></mat-paginator>
     </div>
   </mat-card-content>
 </mat-card>

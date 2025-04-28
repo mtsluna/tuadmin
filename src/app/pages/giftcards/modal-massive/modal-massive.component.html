@@ -1,0 +1,30 @@
+<h2 mat-dialog-title>Carga masiva</h2>
+<mat-dialog-content [formGroup]="formGroup">
+  <mat-form-field class="w-100 mt-2" appearance="outline">
+    <mat-label>Cantidad</mat-label>
+    <select formControlName="quantity" matNativeControl required>
+      <option value="5">5</option>
+      <option value="10">10</option>
+      <option value="25">25</option>
+      <option value="50">50</option>
+    </select>
+  </mat-form-field>
+  <mat-form-field class="w-100 mt-2" appearance="outline">
+    <mat-label>Tipo</mat-label>
+    <select formControlName="type" matNativeControl required>
+      <option value="Black">Black</option>
+      <option value="Gold">Gold</option>
+      <option value="Silver">Silver</option>
+      <option value="Bronze">Bronze</option>
+    </select>
+  </mat-form-field>
+  <mat-form-field class="w-100" appearance="outline">
+    <mat-label>Monto</mat-label>
+    <span matTextPrefix>$&nbsp;</span>
+    <input type="number" formControlName="balance" matInput />
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="dialogRef.close()">Cerrar</button>
+  <button mat-button cdkFocusInitial (click)="create()">Crear</button>
+</mat-dialog-actions>
