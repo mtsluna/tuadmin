@@ -20,7 +20,7 @@ export class AuthInterceptor implements HttpInterceptor {
 
     console.info("Intercepting request", req.url);
 
-    if (req.url.includes('/refresh-token')) {
+    if (req.url.includes('auth/refresh')) {
 
       console.info("Breaking the interceptor for refresh token");
 
