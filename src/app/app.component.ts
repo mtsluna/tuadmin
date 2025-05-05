@@ -27,6 +27,10 @@ export class AppComponent implements OnDestroy, OnInit {
     {
       name: 'Giftcards',
       path: '/giftcards',
+    },
+    {
+      name: 'Catalogos Externos',
+      path: '/external-catalogs',
     }
   ];
 
